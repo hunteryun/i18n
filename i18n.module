@@ -16,5 +16,9 @@ function t($string, $args = array()) {
   ];
   $i18n->addDicts($paths);
 
-  return $i18n->translate($string, $args);
+  try {
+    return $i18n->translate($string, $args);
+  } catch (\Exception $e) {
+    return $string;
+  }
 }
