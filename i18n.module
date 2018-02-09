@@ -8,15 +8,14 @@ use rock\i18n\i18n;
 function t($string, $args = array()) {
   global $default_language;
 
-  $i18n = new i18n;
-  $paths = [
-    'en' => [
-         'sites/langs/en/lang.php',
-     ]
-  ];
-  $i18n->addDicts($paths);
-
   try {
+    $i18n = new i18n;
+    $paths = [
+      'en' => [
+           'sites/langs/en/lang.php',
+       ]
+    ];
+    $i18n->addDicts($paths);
     return $i18n->translate($string, $args);
   } catch (\Exception $e) {
     return $string;
